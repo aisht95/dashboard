@@ -112,7 +112,8 @@ export default function Dashboard() {
         </KBarPositioner>
       </KBarPortal>
       <Container fluid className="wrapper">
-        <Navbar className="userNav" fixed="bottom" expand="xxl">
+      <Container fluid>
+        <Navbar className="userNav" fixed="bottom">
           {userData.map((item, index) => (
             <Nav.Item key={`${item.name}`}>
               {index !== 0 ? userKPI(item.name, item.kpi) : null}
@@ -148,11 +149,12 @@ export default function Dashboard() {
             <img src={userImages[0]} id={`img0`} />
           </Nav.Item>
         </Navbar>
+        </Container>
         <Row>
-          <Col xs={12} lg={5}>
+          <Col lg={12}  xxl={5}>
             <Hud content={content} />
           </Col>
-          <Col xs={12} lg={7}>
+          <Col lg={12}  xxl={7}>
             <Animations />
             <Nodes content={content} />
           </Col>

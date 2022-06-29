@@ -2,8 +2,21 @@
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/variables";
 
+@media only screen and (max-width: 1500px) {
+  .hudContent::-webkit-scrollbar,
+  .wrapper::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari */
+  }
+  .nodes {
+    padding-bottom: 20%;
+  }
+  .animations {
+    display: none;
+  }
 
-@media only screen and (max-width: 1000px) {
+}
+
+@media only screen and (max-width: 1300px) {
   .hudContent::-webkit-scrollbar,
   .wrapper::-webkit-scrollbar {
     display: none; /* for Chrome, Safari */
@@ -15,7 +28,7 @@
     overflow-y: scroll;
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
-
+    padding-bottom: 20%;
     .hudContent {
       transform: scale(1);
       padding: 5%;
@@ -59,7 +72,7 @@
       }
       .notifications {
         font-size: small;
-        height:50vh;
+        height: 50vh;
         overflow-y: scroll;
         padding: 2%;
         h4,
@@ -68,12 +81,12 @@
         }
       }
 
-      .ONEs {    
+      .ONEs {
         padding-top: 2%;
-        padding-left:5%;
-        padding-right:5%;
+        padding-left: 5%;
+        padding-right: 5%;
         table {
-            font-size: small;
+          font-size: small;
         }
         h4,
         h5 {
@@ -84,7 +97,8 @@
 
     .nodes {
       transform: scale(1);
-      padding-bottom:20%;
+      padding: 10%;
+      padding-bottom: 20%;
       .node0,
       .node1,
       .node2,
@@ -93,30 +107,32 @@
       .node5,
       .node6 {
         transform: scale(1);
-        top:0%;
-        left:0%;
+        top: 0%;
+        left: 0%;
         padding: 5%;
-        
+
         margin: 0;
         width: 50%;
-        height:fit-content;
+        height: fit-content;
 
-        .nodeCircle{
-            display:none;
+        .nodeCircle {
+          transform: scale(0.5);
+          width: 100px;
+          height: 100px;
         }
         .nodePulse {
-            display:none;
+          transform: scale(0.5);
+          width: 100px;
+          height: 100px;
         }
       }
     }
     .animations {
-        display: none;
+      display: none;
     }
-
     .userNav {
         display: none;
-    }
- 
- 
+      }
+   
   }
 }
