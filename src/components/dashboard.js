@@ -149,10 +149,10 @@ export default function Dashboard() {
           </Nav.Item>
         </Navbar>
         <Row>
-          <Col xs={12} xxl={5}>
+          <Col xs={12} lg={5}>
             <Hud content={content} />
           </Col>
-          <Col xs={12} xxl={7}>
+          <Col xs={12} lg={7}>
             <Animations />
             <Nodes content={content} />
           </Col>
