@@ -153,7 +153,7 @@ export default function Hud(props) {
             <li key="temp" id="temperature">
               <h3>{temperature + "°"}</h3>
             </li>
-            <li key="weather" >
+            <li key="weather" id="weather">
               <img
                 src={`http://openweathermap.org/img/wn/${image}.png`}
                 id="weatherIcon"

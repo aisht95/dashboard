@@ -1,0 +1,122 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/variables";
+
+
+@media only screen and (max-width: 1500px) {
+  .hudContent::-webkit-scrollbar,
+  .wrapper::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari */
+  }
+
+  .wrapper {
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+
+    .hudContent {
+      transform: scale(1);
+      padding: 5%;
+      margin: 0;
+      overflow-y: scroll;
+      -ms-overflow-style: none; /* for Internet Explorer, Edge */
+      scrollbar-width: none; /* for Firefox */
+
+      .topBar {
+        padding: 2%;
+        .hudIcons {
+          li {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+          }
+        }
+        .weatherIcons {
+          padding: 0px;
+          margin: 0px;
+          justify-content: center;
+          li {
+            padding: 1%;
+            margin: 0;
+            transform: translate(10%, 15%);
+          }
+
+          #weather {
+            #weatherIcon {
+              display: none;
+            }
+          }
+
+          h3 {
+            font-size: small;
+          }
+          #timezone {
+            min-width: 100px;
+          }
+        }
+      }
+      .notifications {
+        font-size: small;
+        height:50vh;
+        overflow-y: scroll;
+        padding: 2%;
+        h4,
+        h5 {
+          font-size: large;
+        }
+      }
+
+      .ONEs {    
+        padding-top: 2%;
+        padding-left:5%;
+        padding-right:5%;
+        table {
+            font-size: small;
+        }
+        h4,
+        h5 {
+          font-size: large;
+        }
+      }
+    }
+
+    .nodes {
+      transform: scale(1);
+      padding-bottom:20%;
+      .node0,
+      .node1,
+      .node2,
+      .node3,
+      .node4,
+      .node5,
+      .node6 {
+        transform: scale(1);
+        top:0%;
+        left:0%;
+        padding: 5%;
+        
+        margin: 0;
+        width: 50%;
+        height:fit-content;
+
+        .nodeCircle{
+            display:none;
+        }
+        .nodePulse {
+            display:none;
+        }
+      }
+    }
+    .animations {
+        display: none;
+    }
+
+    .userNav {
+        display: none;
+    }
+ 
+ 
+  }
+}

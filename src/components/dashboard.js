@@ -1,8 +1,9 @@
 import { React, useState, useEffect, useRef } from "react";
 import "./dashboard.scss";
+import "./responsive.scss";
 import Hud from "./hud";
 import Nodes from "./nodes";
-import { Container, Row, Col, Nav, Navbar } from "react-bootstrap";
+import { Container, Row, Col, Nav, Navbar, NavbarProps } from "react-bootstrap";
 import {
   KBarProvider,
   KBarPortal,
@@ -68,7 +69,7 @@ export default function Dashboard() {
         padding: 10,
       },
     };
-    return <Doughnut data={data} width={70} height={70} options={options} />;
+    return <Doughnut data={data} width={70} height={70} options={options}/>;
   }
 
   function RenderResults() {
@@ -111,7 +112,7 @@ export default function Dashboard() {
         </KBarPositioner>
       </KBarPortal>
       <Container fluid className="wrapper">
-        <Navbar className="userNav" fixed="bottom">
+        <Navbar className="userNav" fixed="bottom" expand="xxl">
           {userData.map((item, index) => (
             <Nav.Item key={`${item.name}`}>
               {index !== 0 ? userKPI(item.name, item.kpi) : null}
