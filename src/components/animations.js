@@ -1,5 +1,5 @@
-import { React, useState, useEffect, useRef } from "react";
-import { Container, Card, Row, Col, ColProps, RowProps } from "react-bootstrap";
+import { React, useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
 import "./dashboard.scss";
 
 export default function Animations() {

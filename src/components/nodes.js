@@ -1,5 +1,5 @@
-import { React, useState, useEffect, useRef } from "react";
-import { Container, Card, Row, Col, ColProps, RowProps } from "react-bootstrap";
+import { React, useState, useEffect} from "react";
+import { Container, Card, Row } from "react-bootstrap";
 import { CaretDownFill, CaretUpFill } from "react-bootstrap-icons";
 import "./dashboard.scss";
 
@@ -7,9 +7,8 @@ export default function Nodes(props) {
   const { content } = props;
 
   let nodeData = [...content.nodes];
-  let slaKpis = [];
   let minThreshold = 3000;
-
+  let slaKpis = [];
   nodeData.forEach((i) => slaKpis.push(i.slaKpi));
 
   const [slas, setSlas] = useState([...slaKpis]);
@@ -27,7 +26,7 @@ export default function Nodes(props) {
     <Container fluid className="nodes">
       <Row>
         {nodeData.map((item, index) => (
-          <Card className={`node${index}`}>
+          <Card key={`node${index}`} className={`node${index}`}>
             <Card.Body>
               <div
                 className={
@@ -39,7 +38,7 @@ export default function Nodes(props) {
               </Card.Title>
               <Card.Text className="nodeText">
                 <table>
-                  <tr className="slaRow">
+                  <tr key="slaRow" className="slaRow">
                     <td>
                       {slas[index] > minThreshold ? (
                         <CaretUpFill />
@@ -51,13 +50,13 @@ export default function Nodes(props) {
                     <td id="name">SLA</td>
                   </tr>
                   {item.throughput ? (
-                    <tr>
+                    <tr key={`thrpt${index}`}>
                       <td>{item.throughput}</td>
                       <td id="name">Thrpt/8hr</td>
                     </tr>
                   ) : null}
                   {item.costKpi ? (
-                    <tr>
+                    <tr key={`cost${index}`}>
                       <td>{item.costKpi}</td>
                       <td id="name">Cost/8hr</td>
                     </tr>

@@ -101,7 +101,7 @@ export default function Dashboard() {
   }
 
   return (
-    <KBarProvider actions={actions}>
+    <KBarProvider key="kbar" actions={actions}>
       <KBarPortal>
         <KBarPositioner>
           <KBarAnimator>
@@ -113,18 +113,22 @@ export default function Dashboard() {
       <Container fluid className="wrapper">
         <Navbar className="userNav" fixed="bottom">
           {userData.map((item, index) => (
-            <Nav.Item>
+            <Nav.Item key={`${item.name}`}>
               {index !== 0 ? userKPI(item.name, item.kpi) : null}
             </Nav.Item>
           ))}
           {userImages.map((img, index) => (
-            <img src={index !== 0 ? img : null} id={`img${index}`} />
+            <img
+              src={index !== 0 ? img : null}
+              id={`img${index}`}
+              key={`img${index}`}
+            />
           ))}
           <hr />
-          <Nav.Item id="activeUser">
+          <Nav.Item key="activeUser" id="activeUser">
             <button className="userNotifs">
-              <span id="badge" class="p-1 bg-danger rounded-circle">
-                <span class="visually-hidden">New alerts</span>
+              <span id="badge" className="p-1 bg-danger rounded-circle">
+                <span className="visually-hidden">New alerts</span>
               </span>
               <Bell id="icon" />
             </button>
@@ -135,8 +139,8 @@ export default function Dashboard() {
               <JournalText id="icon" />
             </button>
             <button className="calendar">
-              <span id="badge" class="p-1 bg-danger rounded-circle">
-                <span class="visually-hidden">Calendar alerts</span>
+              <span id="badge" className="p-1 bg-danger rounded-circle">
+                <span className="visually-hidden">Calendar alerts</span>
               </span>
               <Calendar id="icon" />
             </button>
@@ -148,8 +152,8 @@ export default function Dashboard() {
             <Hud content={content} />
           </Col>
           <Col xs={12} xxl={7}>
-            <Nodes content={content} />
             <Animations />
+            <Nodes content={content} />
           </Col>
         </Row>
       </Container>

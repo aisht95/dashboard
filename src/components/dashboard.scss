@@ -41,13 +41,13 @@
     margin-top: -3%;
     padding-left: 10%;
     padding-right: 10%;
-    padding-top:3vh;
+    padding-top: 3vh;
     border: 0;
 
     .topBar {
       margin: 0;
       padding: 0;
-      border:0;
+      border: 0;
       border-bottom: 5px solid $gray-200;
       display: flex;
 
@@ -55,9 +55,9 @@
         list-style-type: none;
         display: inline-flex;
         padding: 0;
-        padding-bottom:2%;
+        padding-bottom: 2%;
         margin: 0;
-        width:100%;
+        width: 100%;
 
         li {
           padding-right: 5%;
@@ -90,12 +90,9 @@
         list-style-type: none;
         display: inline-flex;
         padding: 0;
-        padding-bottom:2%;
+        padding-bottom: 2%;
         margin: 0;
-        width:100%;
-
-        #temperature {
-        }
+        width: 100%;
 
         #weatherIcon {
           width: 20px;
@@ -107,8 +104,8 @@
           font-family: "Noli";
           font-weight: 800;
           font-size: xx-small;
-          max-width: 80px;
-          min-width: 80px;
+          max-width: 60px;
+          min-width: 60px;
           transform: translateY(12%);
         }
 
@@ -120,7 +117,6 @@
 
         #time {
           align-self: auto;
-         
         }
 
         h3 {
@@ -347,41 +343,13 @@
   }
 
   .nodes {
-    background-color: black;
+    background-color: transparent;
     font-family: "Noli";
     font-size: 14px;
     transform: scale(1.1);
     margin: 0;
     padding-left: 0%;
     padding-top: 2.5%;
-
-
-    @-webkit-keyframes pulse {
-      0% {
-        -webkit-box-shadow: 0 0 0 0 rgba(255, 105,105, 0.7);
-      }
-      70% {
-          -webkit-box-shadow: 0 0 0 50px rgba(255, 105,105, 0);
-      }
-      100% {
-          -webkit-box-shadow: 0 0 0 0 rgba(255, 105,105, 0);
-      }
-    }
-
-    @keyframes pulse {
-      0% {
-        -moz-box-shadow: 0 0 0 0 rgba(255, 105,105, 0.7);
-        box-shadow: 0 0 0 0 rgba(255, 105,105, 0.4);
-      }
-      70% {
-          -moz-box-shadow: 0 0 0 50px rgba(255, 105,105, 0);
-          box-shadow: 0 0 0 50px rgba(255, 105,105, 0);
-      }
-      100% {
-          -moz-box-shadow: 0 0 0 0 rgba(255, 105,105, 0);
-          box-shadow: 0 0 0 0 rgba(255, 105,105, 0);
-      }
-    }
 
     .node0 {
       background: none;
@@ -403,14 +371,13 @@
         border-radius: 50%;
         background-color: $red-200;
         transform: translate(-120%, 100%);
-        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 1);
         animation: pulse 2s infinite;
       }
-
     }
 
     .node1 {
-      background: transparent;
+      background: none;
       border: 0;
       width: 20%;
       position: relative;
@@ -427,15 +394,15 @@
       }
 
       .nodePulse {
+        z-index: 1;
         width: 110px;
         height: 110px;
         border-radius: 50%;
         background-color: $red-200;
         transform: translate(-120%, 100%);
-        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 1);
         animation: pulse 2s infinite;
       }
-
     }
 
     .node2 {
@@ -460,11 +427,9 @@
         border-radius: 50%;
         background-color: $red-200;
         transform: translate(-130%, 140%);
-        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 1);
         animation: pulse 2s infinite;
       }
-
-
     }
 
     .node3 {
@@ -488,7 +453,7 @@
         border-radius: 50%;
         background-color: $red-200;
         transform: translate(-120%, 100%);
-        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 1);
         animation: pulse 2s infinite;
       }
     }
@@ -516,7 +481,7 @@
         border-radius: 50%;
         background-color: $red-200;
         transform: translate(-130%, 140%);
-        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 1);
         animation: pulse 2s infinite;
       }
     }
@@ -544,7 +509,7 @@
         border-radius: 50%;
         background-color: $red-200;
         transform: translate(-130%, 140%);
-        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 1);
         animation: pulse 2s infinite;
       }
     }
@@ -569,10 +534,9 @@
         border-radius: 50%;
         background-color: $red-200;
         transform: translate(-120%, 100%);
-        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 1);
         animation: pulse 2s infinite;
       }
-
     }
 
     h4 {
@@ -601,14 +565,14 @@
 
   .animations {
     .lineContainer {
-      width: 23%;
+      width: 19%;
       height: min-content;
       background-color: transparent;
       overflow: hidden;
       position: absolute;
       transform: rotate(35deg);
       left: 45%;
-      top: 25%;
+      top: 23%;
     }
 
     .line2Container {
@@ -640,7 +604,7 @@
       overflow: hidden;
       position: absolute;
       transform: rotate(-70deg);
-      left: 76%;
+      left: 75%;
       top: 60%;
     }
 
@@ -711,6 +675,32 @@
       100% {
         left: 5.5ex;
       }
+    }
+  }
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 rgba(255, 105, 105, 0.7);
+    }
+    70% {
+      -webkit-box-shadow: 0 0 0 50px rgba(255, 105, 105, 0);
+    }
+    100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(255, 105, 105, 0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(255, 105, 105, 0.7);
+      box-shadow: 0 0 0 0 rgba(255, 105, 105, 0.4);
+    }
+    70% {
+      -moz-box-shadow: 0 0 0 50px rgba(255, 105, 105, 0);
+      box-shadow: 0 0 0 50px rgba(255, 105, 105, 0);
+    }
+    100% {
+      -moz-box-shadow: 0 0 0 0 rgba(255, 105, 105, 0);
+      box-shadow: 0 0 0 0 rgba(255, 105, 105, 0);
     }
   }
 }

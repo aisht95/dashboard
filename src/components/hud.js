@@ -1,5 +1,4 @@
-import { React, useState, useEffect, useRef } from "react";
-import { ReactDOM } from "react";
+import { React, useState, useEffect} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import {
   CaretDownFill,
@@ -9,9 +8,7 @@ import {
   ThermometerHalf,
   PeopleFill,
   PlugFill,
-  CartFill,
   Truck,
-  People,
 } from "react-bootstrap-icons";
 import "./dashboard.scss";
 
@@ -23,10 +20,10 @@ export default function Hud(props) {
 
   function notifications(title, body) {
     return (
-      <div>
-        <h5> {title} </h5>
-        <p> {body} </p>
-      </div>
+      <Container>
+        <h5>{title}</h5>
+        <p>{body}</p>
+      </Container>
     );
   }
 
@@ -73,11 +70,13 @@ export default function Hud(props) {
       )
         .then((res) => res.json())
         .then((result) => {
-          setData(result);
-          setTemp(result.main.temp);
-          setImage(result.weather[0].icon);
-        });
+            setData(result);
+            setTemp(result.main.temp);
+            setImage(result.weather[0].icon);
+        })
+        .catch((err)=> console.log(err));
 
+        /*
       await fetch(
         `http://api.timezonedb.com/v2.1/get-time-zone?key=${timeApiKey}&format=json&by=position&lat=${lat}&lng=${long}`
       )
@@ -85,6 +84,7 @@ export default function Hud(props) {
         .then((result) => {
           setTime(result.formatted.match(/([0-9]+\:){2}([0-9]+)/g));
         });
+        */
     };
     const interval = setInterval(() => {
       fetchData();
@@ -128,42 +128,42 @@ export default function Hud(props) {
       <Row className="topBar">
         <Col md={12} xxl={8}>
           <ul className="hudIcons">
-            <li id="greenIcon">
+            <li key="plug" id="greenIcon">
               <PlugFill />
             </li>
-            <li id="greenIcon">
+            <li key="droplet" id="greenIcon">
               <DropletHalf />
             </li>
-            <li id="redIcon">
+            <li key="router" id="redIcon">
               <RouterFill />
             </li>
-            <li id="greenIcon">
+            <li key="thermometer" id="greenIcon">
               <ThermometerHalf />
             </li>
-            <li id="redIcon">
+            <li key="people" id="redIcon">
               <PeopleFill />
             </li>
-            <li id="greenIcon">
-              <CartFill />
+            <li key="cart" id="greenIcon">
+              <Truck />
             </li>
           </ul>
         </Col>
         <Col md={12} xxl={4}>
           <ul className="weatherIcons">
-            <li id="temperature">
+            <li key="temp" id="temperature">
               <h3>{temperature + "°"}</h3>
             </li>
-            <li>
+            <li key="weather" >
               <img
                 src={`http://openweathermap.org/img/wn/${image}.png`}
                 id="weatherIcon"
               />
             </li>
-            <li id="timezone">
+            <li key="timezone" id="timezone">
               {timezone} {day} {todaysDate}
             </li>
-            <li id="time">
-              <h3>{time}</h3>
+            <li key="time" id="time">
+              <h3>{date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()}</h3>
             </li>
           </ul>
         </Col>
@@ -174,7 +174,7 @@ export default function Hud(props) {
           <h4>Notifications</h4>
           <ul>
             {notificationsData.map((item) => (
-              <li> {notifications(item.title, item.body)} </li>
+              <li key={`${item.title}`}> {notifications(item.title, item.body)} </li>
             ))}
           </ul>
         </Col>
@@ -184,9 +184,9 @@ export default function Hud(props) {
             <table>
               <tbody>
                 {onesData.map((item, index) => (
-                  <tr>
-                    <td id="name"> {item.name} </td>
-                    <td id="kpi">
+                  <tr key={`${item.name}`}>
+                    <td key="name" id="name"> {item.name} </td>
+                    <td key="kpi" id="kpi">
                       {onesKpis[index] > minThreshold ? (
                         <CaretUpFill />
                       ) : (
@@ -204,9 +204,9 @@ export default function Hud(props) {
             <table>
               <tbody>
                 {hudNodeData.map((item) => (
-                  <tr>
-                    <td id="name"> {item.name} </td>
-                    <td id="kpi"> {item.kpi} </td>
+                  <tr key={`${item.name}`}>
+                    <td key="nodename" id="name"> {item.name} </td>
+                    <td key="nodekpi" id="kpi"> {item.kpi} </td>
                   </tr>
                 ))}
               </tbody>
