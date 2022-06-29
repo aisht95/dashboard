@@ -1,0 +1,716 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/variables";
+
+@font-face {
+  font-family: "Noli";
+  src: url(assets/fonts/Noli-Book.eot) format("embedded-opentype"),
+    url(assets/fonts/Noli-Book.woff) format("woff"),
+    url(assets/fonts/Noli-Book.woff2) format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Noli";
+  src: url(assets/fonts/Noli-Light.eot) format("embedded-opentype"),
+    url(assets/fonts/Noli-Light.woff) format("woff"),
+    url(assets/fonts/Noli-Light.woff2) format("woff2");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Noli";
+  src: url(assets/fonts/Noli-SemiBold.eot) format("embedded-opentype"),
+    url(assets/fonts/Noli-SemiBold.woff) format("woff"),
+    url(assets/fonts/Noli-SemiBold.woff2) format("woff2");
+  font-style: normal;
+  font-weight: 600;
+}
+
+.wrapper {
+  background: $black;
+  color: $gray-200;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+
+  .hudContent {
+    transform: scale(0.8);
+    margin-top: -3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top:3vh;
+    border: 0;
+
+    .topBar {
+      margin: 0;
+      padding: 0;
+      border:0;
+      border-bottom: 5px solid $gray-200;
+      display: flex;
+
+      .hudIcons {
+        list-style-type: none;
+        display: inline-flex;
+        padding: 0;
+        padding-bottom:2%;
+        margin: 0;
+        width:100%;
+
+        li {
+          padding-right: 5%;
+        }
+
+        #greenIcon::before,
+        #greenIcon::after,
+        #greenIcon {
+          transform: scale(1.2);
+          color: $green-200;
+        }
+
+        #greenIcon:hover {
+          color: $green-300;
+        }
+
+        #redIcon::before,
+        #redIcon::after,
+        #redIcon {
+          transform: scale(1.2);
+          color: $red-200;
+        }
+
+        #redIcon:hover {
+          color: $red-300;
+        }
+      }
+
+      .weatherIcons {
+        list-style-type: none;
+        display: inline-flex;
+        padding: 0;
+        padding-bottom:2%;
+        margin: 0;
+        width:100%;
+
+        #temperature {
+        }
+
+        #weatherIcon {
+          width: 20px;
+          height: 20px;
+          transform: translate(-0.5vw, 0.8vh);
+        }
+
+        #timezone {
+          font-family: "Noli";
+          font-weight: 800;
+          font-size: xx-small;
+          max-width: 80px;
+          min-width: 80px;
+          transform: translateY(12%);
+        }
+
+        #day {
+          font-family: "Noli";
+          font-weight: 800;
+          font-size: x-small;
+        }
+
+        #time {
+          align-self: auto;
+         
+        }
+
+        h3 {
+          font-family: "Noli";
+          font-weight: 600;
+        }
+      }
+    }
+
+    h4 {
+      border: 0;
+      line-height: 2;
+      font-family: "Noli";
+      font-weight: 600;
+      padding-left: 0;
+      margin: 0;
+      border-bottom: 2px solid $gray-200;
+    }
+
+    .notifications::-webkit-scrollbar {
+      display: none; /* for Chrome, Safari */
+    }
+
+    .notifications {
+      margin: 0;
+      padding-right: 3%;
+      border: 0;
+      overflow-y: scroll;
+      -ms-overflow-style: none; /* for Internet Explorer, Edge */
+      scrollbar-width: none; /* for Firefox */
+      max-height: 80vh;
+      mask-image: linear-gradient(
+        to bottom,
+        black calc(100% - 30%),
+        transparent 100%
+      );
+
+      h5 {
+        padding-top: 4%;
+        font-family: "Noli";
+        font-weight: 600;
+      }
+
+      p {
+        font-family: "Noli";
+        font-weight: 300;
+        padding-bottom: 5%;
+        border-bottom: 1px solid $gray-700;
+      }
+    }
+
+    .ONEs {
+      padding-right: 2.8%;
+      table {
+        font-family: "Noli";
+        font-weight: 300;
+        font-size: 21px;
+        padding-right: 2%;
+
+        #name {
+          padding-top: 0.8vh;
+          padding-bottom: 2vh;
+          width: 5vh;
+        }
+        #kpi {
+          padding-bottom: 4vh;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .userNav {
+    z-index: 1;
+    padding-bottom: 6%;
+    justify-content: center;
+    position: fixed;
+    transform: translate(-4%, 0%);
+
+    #img1,
+    #img2,
+    #img3,
+    #img4,
+    #img5 {
+      width: 25px;
+      height: 25px;
+    }
+
+    #activeUser {
+      .userNotifs {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        position: absolute;
+        opacity: 0.9;
+
+        #badge {
+          z-index: 1;
+          background: none;
+          position: absolute;
+          transform: translate(2150%, -630%);
+        }
+
+        #icon {
+          color: $gray-200;
+          width: 17px;
+          height: 17px;
+
+          border-radius: 50%;
+          position: absolute;
+          transform: translate(950%, -280%);
+        }
+      }
+
+      .search {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        position: absolute;
+        opacity: 0.7;
+
+        #icon {
+          color: $gray-200;
+          width: 14px;
+          height: 14px;
+
+          position: absolute;
+          transform: translate(1300%, -250%);
+        }
+      }
+
+      .notes {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        position: absolute;
+        opacity: 0.5;
+
+        #icon {
+          color: $gray-200;
+          width: 11px;
+          height: 11px;
+
+          position: absolute;
+          transform: translate(1560%, -200%);
+        }
+      }
+
+      .calendar {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        position: absolute;
+        opacity: 0.5;
+        #badge {
+          z-index: 1;
+          background: none;
+          position: absolute;
+          transform: translate(2370%, -160%);
+        }
+
+        #icon {
+          color: $gray-200;
+          width: 9px;
+          height: 9px;
+
+          position: absolute;
+          transform: translate(2050%, -120%);
+        }
+      }
+
+      #img0 {
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        transform: translate(140%, -50%);
+        border-color: transparent;
+        border-radius: 50%;
+      }
+    }
+
+    #img1 {
+      position: absolute;
+      transform: translate(280%, 20%);
+      border-color: transparent;
+      border-radius: 50%;
+    }
+
+    #img2 {
+      position: absolute;
+      transform: translate(560%, 20%);
+      border-radius: 50%;
+      border-color: transparent;
+    }
+
+    #img3 {
+      position: absolute;
+      transform: translate(-280%, 20%);
+      border-radius: 50%;
+      border-color: transparent;
+    }
+
+    #img4 {
+      position: absolute;
+      transform: translate(0%, 20%);
+
+      border-radius: 50%;
+      border-color: transparent;
+    }
+
+    #img5 {
+      position: absolute;
+      transform: translate(-560%, 20%);
+      border-radius: 50%;
+      border-color: transparent;
+    }
+
+    hr {
+      position: absolute;
+      transform: translate(330%, 200%);
+      border: 1px solid $gray-200;
+      width: 3%;
+    }
+  }
+
+  .nodes {
+    background-color: black;
+    font-family: "Noli";
+    font-size: 14px;
+    transform: scale(1.1);
+    margin: 0;
+    padding-left: 0%;
+    padding-top: 2.5%;
+
+
+    @-webkit-keyframes pulse {
+      0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(255, 105,105, 0.7);
+      }
+      70% {
+          -webkit-box-shadow: 0 0 0 50px rgba(255, 105,105, 0);
+      }
+      100% {
+          -webkit-box-shadow: 0 0 0 0 rgba(255, 105,105, 0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        -moz-box-shadow: 0 0 0 0 rgba(255, 105,105, 0.7);
+        box-shadow: 0 0 0 0 rgba(255, 105,105, 0.4);
+      }
+      70% {
+          -moz-box-shadow: 0 0 0 50px rgba(255, 105,105, 0);
+          box-shadow: 0 0 0 50px rgba(255, 105,105, 0);
+      }
+      100% {
+          -moz-box-shadow: 0 0 0 0 rgba(255, 105,105, 0);
+          box-shadow: 0 0 0 0 rgba(255, 105,105, 0);
+      }
+    }
+
+    .node0 {
+      background: none;
+      border: 0;
+      width: 20%;
+      transform: translateX(80%);
+
+      .nodeCircle {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: $gray-200;
+        transform: translate(-120%, 100%);
+      }
+
+      .nodePulse {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: $red-200;
+        transform: translate(-120%, 100%);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        animation: pulse 2s infinite;
+      }
+
+    }
+
+    .node1 {
+      background: transparent;
+      border: 0;
+      width: 20%;
+      position: relative;
+      left: 28%;
+      top: 170px;
+      transform: scale(1.3);
+
+      .nodeCircle {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background-color: $gray-200;
+        transform: translate(-120%, 100%);
+      }
+
+      .nodePulse {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background-color: $red-200;
+        transform: translate(-120%, 100%);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        animation: pulse 2s infinite;
+      }
+
+    }
+
+    .node2 {
+      background: none;
+      border: 0;
+      width: 15%;
+      position: relative;
+      right: 17%;
+      top: 410px;
+      transform: scale(0.8);
+
+      .nodeCircle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $gray-200;
+        transform: translate(-130%, 140%);
+      }
+      .nodePulse {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $red-200;
+        transform: translate(-130%, 140%);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        animation: pulse 2s infinite;
+      }
+
+
+    }
+
+    .node3 {
+      background: none;
+      border: 0;
+      position: relative;
+      transform: translate(-105%, 210%);
+      width: 18%;
+
+      .nodeCircle {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: $gray-200;
+        transform: translate(-120%, 100%);
+      }
+
+      .nodePulse {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: $red-200;
+        transform: translate(-120%, 100%);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        animation: pulse 2s infinite;
+      }
+    }
+
+    .node4 {
+      background: none;
+      border: 0;
+      width: 18%;
+      position: relative;
+      right: 5%;
+      top: 475px;
+      transform: scale(0.8);
+
+      .nodeCircle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $gray-200;
+        transform: translate(-130%, 140%);
+      }
+
+      .nodePulse {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $red-200;
+        transform: translate(-130%, 140%);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        animation: pulse 2s infinite;
+      }
+    }
+
+    .node5 {
+      background: none;
+      border: 0;
+      width: 16%;
+      position: relative;
+      left: 63%;
+      top: 440px;
+      transform: scale(0.8);
+
+      .nodeCircle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $gray-200;
+        transform: translate(-130%, 140%);
+      }
+
+      .nodePulse {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $red-200;
+        transform: translate(-130%, 140%);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        animation: pulse 2s infinite;
+      }
+    }
+
+    .node6 {
+      background: none;
+      border: 0;
+      position: relative;
+      width: 16%;
+      transform: translate(375%, 275%);
+
+      .nodeCircle {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: $gray-200;
+        transform: translate(-120%, 100%);
+      }
+      .nodePulse {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background-color: $red-200;
+        transform: translate(-120%, 100%);
+        box-shadow: 0 0 0 rgba(255, 105, 105, 0.527);
+        animation: pulse 2s infinite;
+      }
+
+    }
+
+    h4 {
+      font-weight: 600;
+      text-align: right;
+      border: 0;
+      border-bottom: 5px solid $gray-200;
+      padding-bottom: 5%;
+    }
+
+    .nodeText {
+      table {
+        .slaRow {
+          border-bottom: 1px solid $gray-200;
+          td {
+            width: 100px;
+          }
+        }
+        #name {
+          width: 8vw;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .animations {
+    .lineContainer {
+      width: 23%;
+      height: min-content;
+      background-color: transparent;
+      overflow: hidden;
+      position: absolute;
+      transform: rotate(35deg);
+      left: 45%;
+      top: 25%;
+    }
+
+    .line2Container {
+      width: 10%;
+      height: min-content;
+      background-color: transparent;
+      overflow: hidden;
+      position: absolute;
+      transform: rotate(145deg);
+      left: 53%;
+      top: 40%;
+    }
+
+    .line3Container {
+      width: 10%;
+      height: min-content;
+      background-color: transparent;
+      overflow: hidden;
+      position: absolute;
+      transform: rotate(50deg);
+      left: 52%;
+      top: 52%;
+    }
+
+    .line4Container {
+      width: 10%;
+      height: min-content;
+      background-color: transparent;
+      overflow: hidden;
+      position: absolute;
+      transform: rotate(-70deg);
+      left: 76%;
+      top: 60%;
+    }
+
+    .line5Container {
+      width: 18%;
+      height: min-content;
+      background-color: transparent;
+      overflow: hidden;
+      position: absolute;
+      transform: rotate(15deg);
+      left: 61%;
+      top: 65%;
+    }
+
+    .line6Container {
+      width: 10%;
+      height: min-content;
+      background-color: transparent;
+      overflow: hidden;
+      position: absolute;
+      transform: rotate(45deg);
+      left: 77.5%;
+      top: 76%;
+    }
+
+    .line7Container {
+      width: 10%;
+      height: min-content;
+      background-color: transparent;
+      overflow: hidden;
+      position: absolute;
+      transform: rotate(90deg);
+      left: 42.3%;
+      top: 5%;
+    }
+
+    .line8Container {
+      width: 10%;
+      height: min-content;
+      background-color: transparent;
+      overflow: hidden;
+      position: absolute;
+      transform: rotate(90deg);
+      left: 80.5%;
+      top: 90%;
+    }
+
+    #line1 {
+      position: relative;
+      width: 100%;
+      height: 5px;
+      opacity: 0.4;
+      background: repeating-linear-gradient(
+        to left,
+        $gray-200 0,
+        $gray-200 10px,
+        transparent 30px,
+        transparent 100px
+      );
+      background-repeat: no-repeat;
+      animation: line1 1s infinite linear;
+    }
+
+    @keyframes line1 {
+      0% {
+        left: -7ex;
+      }
+      100% {
+        left: 5.5ex;
+      }
+    }
+  }
+}
